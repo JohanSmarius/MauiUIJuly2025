@@ -17,5 +17,10 @@
         Icon="plus.png"
         ContentTemplate="{DataTemplate views:AddEventPage}"
         Route="add-event" />
-
+    
+    <ShellContent 
+        Title="Volunteer Shifts"
+        Icon="person.png"
+        ContentTemplate="{DataTemplate local:ShiftOverview}"
+        Route="ShiftOverview" />
 </Shell>

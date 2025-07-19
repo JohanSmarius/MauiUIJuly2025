@@ -1,12 +1,15 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MauiAIJuly.Models;
+using MauiAIJuly.Services;
 using System.Collections.ObjectModel;
 
 namespace MauiAIJuly.ViewModels
 {
     public partial class MainPageViewModel : ObservableObject
     {
+        private readonly IEventService _eventService;
+
         [ObservableProperty]
         ObservableCollection<Event> futureEvents = new();
 
@@ -16,36 +19,60 @@ namespace MauiAIJuly.ViewModels
         [ObservableProperty]
         bool isRefreshing;
 
-        public MainPageViewModel()
+        public MainPageViewModel(IEventService eventService)
         {
-            LoadEvents();
+            _eventService = eventService;
+            _eventService.EventsChanged += OnEventsChanged;
+            LoadEventsAsync().ConfigureAwait(false);
+        }
+
+        // Clean up event subscriptions when the view model is no longer needed
+        ~MainPageViewModel()
+        {
+            if (_eventService != null)
+            {
+                _eventService.EventsChanged -= OnEventsChanged;
+            }
+        }
+
+        private void OnEventsChanged(object sender, EventArgs e)
+        {
+            LoadEventsAsync().ConfigureAwait(false);
         }
 
         [RelayCommand]
-        private void Refresh()
+        private async Task RefreshAsync()
         {
             IsRefreshing = true;
-            LoadEvents();
+            await LoadEventsAsync();
             IsRefreshing = false;
         }
 
-        private void LoadEvents()
+        private async Task LoadEventsAsync()
         {
-            FutureEvents.Clear();
-            PastEvents.Clear();
-            var now = DateTime.Now;
-            var allEvents = new List<Event>
+            try
             {
-                new Event { Name = "Charity Run", Start = now, End = now.AddHours(4), Address = "123 Main St", Client = "Red Cross", VolunteersNeeded = 4, State = "Requested" },
-                new Event { Name = "Health Fair", Start = now.AddDays(1), End = now.AddDays(1).AddHours(6), Address = "456 Elm St", Client = "Local Hospital", VolunteersNeeded = 6, State = "Confirmed" },
-                new Event { Name = "Completed Event", Start = now.AddDays(-2), End = now.AddDays(-2).AddHours(3), Address = "789 Oak St", Client = "Charity Org", VolunteersNeeded = 2, State = "Confirmed" }
-            };
-            foreach (var ev in allEvents)
+                var now = DateTime.Now;
+                var allEvents = await _eventService.GetEventsAsync();
+
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    FutureEvents.Clear();
+                    PastEvents.Clear();
+
+                    foreach (var ev in allEvents)
+                    {
+                        if (ev.End < now)
+                            PastEvents.Add(ev);
+                        else
+                            FutureEvents.Add(ev);
+                    }
+                });
+            }
+            catch (Exception ex)
             {
-                if (ev.End < now)
-                    PastEvents.Add(ev);
-                else
-                    FutureEvents.Add(ev);
+                // In a real app, we would log this error and possibly show a message to the user
+                System.Diagnostics.Debug.WriteLine($"Error loading events: {ex.Message}");
             }
         }
     }

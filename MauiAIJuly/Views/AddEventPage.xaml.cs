@@ -1,10 +1,13 @@
-namespace MauiAIJuly.Views;
+using MauiAIJuly.ViewModels;
 
+
+namespace MauiAIJuly.Views;
 public partial class AddEventPage : ContentPage
 {
-    public AddEventPage()
+    public AddEventPage(AddEventPageViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext = new ViewModels.AddEventPageViewModel();
+        BindingContext = viewModel;
     }
 }
+

@@ -7,9 +7,6 @@
              xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels"
              xmlns:models="clr-namespace:MauiAIJuly.Models"
              >
-    <ContentPage.BindingContext>
-        <viewModels:MainPageViewModel />
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <sftoolkit:SfTabView>
             <sftoolkit:SfTabView.Items>

@@ -6,9 +6,7 @@
              xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels"
              x:Class="MauiAIJuly.Views.AddEventPage"
              Title="Add Event">
-    <ContentPage.BindingContext>
-        <viewModels:AddEventPageViewModel />
-    </ContentPage.BindingContext>
+
     <ContentPage.Content>
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">

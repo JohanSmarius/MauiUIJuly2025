@@ -2,6 +2,7 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MauiAIJuly"
+             xmlns:converters="clr-namespace:MauiAIJuly.Converters"
              x:Class="MauiAIJuly.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -10,5 +11,6 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

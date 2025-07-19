@@ -8,8 +8,10 @@ public partial class MainPage : ContentPage
 
 	public MainPage(MainPageViewModel viewModel)
 	{
-		_viewModel = viewModel;
 		InitializeComponent();
+
+		_viewModel = viewModel;
+		BindingContext = _viewModel;
 	}
 
 	

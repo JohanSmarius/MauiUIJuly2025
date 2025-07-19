@@ -4,9 +4,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAIJuly.ShiftOverview"
              xmlns:sftoolkit="http://schemas.syncfusion.com/maui/toolkit"
-             xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels">
+             xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels"
+             Title="Volunteer Shifts">
     <ContentPage.Content>
-        
-        
+        <!-- <Grid RowDefinitions="Auto,Auto,*" Padding="20"> -->
+        <!--     ~1~ Summary Statistics @1@ -->
+        <!--     <Grid Grid.Row="0" ColumnDefinitions="*,*" Margin="0,0,0,20"> -->
+        <!--         <Border Grid.Column="0" Margin="5" StrokeShape="RoundRectangle 10" BackgroundColor="{AppThemeBinding Light=#f0f0f0, Dark=#303030}"> -->
+        <!--             <VerticalStackLayout Padding="15" HorizontalOptions="Center"> -->
+        <!--                 <Label Text="Total Volunteers" FontSize="18" HorizontalOptions="Center" /> -->
+        <!--                 <Label Text="{Binding TotalVolunteers}" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" /> -->
+        <!--             </VerticalStackLayout> -->
+        <!--         </Border> -->
+        <!--         <Border Grid.Column="1" Margin="5" StrokeShape="RoundRectangle 10" BackgroundColor="{AppThemeBinding Light=#f0f0f0, Dark=#303030}"> -->
+        <!--             <VerticalStackLayout Padding="15" HorizontalOptions="Center"> -->
+        <!--                 <Label Text="Total Shifts" FontSize="18" HorizontalOptions="Center" /> -->
+        <!--                 <Label Text="{Binding TotalCompletedShifts}" FontSize="36" FontAttributes="Bold" HorizontalOptions="Center" /> -->
+        <!--             </VerticalStackLayout> -->
+        <!--         </Border> -->
+        <!--     </Grid> -->
+        <!-- -->
+        <!--     <Label Grid.Row="1" Text="Top Volunteers" FontSize="22" FontAttributes="Bold" Margin="0,0,0,10" /> -->
+        <!-- -->
+        <!--     ~1~ Volunteer List @1@ -->
+        <!--     <sftoolkit:SfPullToRefresh Grid.Row="2"  -->
+        <!--                                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}" -->
+        <!--                                RefreshCommand="{Binding RefreshCommand}"> -->
+        <!--         <sftoolkit:SfPullToRefresh.PullableContent> -->
+        <!--             <CollectionView ItemsSource="{Binding Volunteers}"> -->
+        <!--                 <CollectionView.EmptyView> -->
+        <!--                     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center"> -->
+        <!--                         <Label Text="No volunteers found" FontSize="18" TextColor="Gray" HorizontalOptions="Center" /> -->
+        <!--                         <Label Text="{Binding StatusMessage}" TextColor="Red" IsVisible="{Binding StatusMessage, Converter={StaticResource StringNotNullOrEmptyConverter}}" /> -->
+        <!--                     </VerticalStackLayout> -->
+        <!--                 </CollectionView.EmptyView> -->
+        <!--                 <CollectionView.ItemTemplate> -->
+        <!--                     <DataTemplate> -->
+        <!--                         <Border Margin="0,5" Padding="15" StrokeShape="RoundRectangle 8"> -->
+        <!--                             <Grid ColumnDefinitions="*,Auto"> -->
+        <!--                                 <VerticalStackLayout Grid.Column="0" Spacing="5"> -->
+        <!--                                     <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="18" /> -->
+        <!--                                     <Label Text="{Binding Email}" FontSize="14" TextColor="Gray" /> -->
+        <!--                                     <Grid ColumnDefinitions="Auto,*,Auto" Margin="0,5,0,0"> -->
+        <!--                                         <Label Grid.Column="0" Text="Shifts: " FontAttributes="Bold" /> -->
+        <!--                                         <Label Grid.Column="1" Text="{Binding CompletedShifts, StringFormat='{0} completed'}" /> -->
+        <!--                                         <Label Grid.Column="2" Text="{Binding CancelledShifts, StringFormat='{0} cancelled'}" TextColor="Gray" /> -->
+        <!--                                     </Grid> -->
+        <!--                                     <Label Text="{Binding LastShiftDate, StringFormat='Last shift: {0:d MMMM yyyy}'}"  -->
+        <!--                                            FontSize="12" TextColor="Gray" /> -->
+        <!--                                 </VerticalStackLayout> -->
+        <!--                                 <Label Grid.Column="1" Text="{Binding CompletedShifts}"  -->
+        <!--                                        FontSize="34" FontAttributes="Bold"  -->
+        <!--                                        VerticalOptions="Center" Margin="10,0,0,0" /> -->
+        <!--                             </Grid> -->
+        <!--                         </Border> -->
+        <!--                     </DataTemplate> -->
+        <!--                 </CollectionView.ItemTemplate> -->
+        <!--             </CollectionView> -->
+        <!--         </sftoolkit:SfPullToRefresh.PullableContent> -->
+        <!--     </sftoolkit:SfPullToRefresh> -->
+        <!-- </Grid> -->
     </ContentPage.Content>
 </ContentPage>

@@ -4,6 +4,7 @@ namespace MauiAIJuly.Services
 {
     public interface IEventService
     {
+        event EventHandler EventsChanged;
         Task<IEnumerable<Event>> GetEventsAsync();
         Task<IEnumerable<Event>> GetPastEventsAsync();
         Task<IEnumerable<Event>> GetFutureEventsAsync();

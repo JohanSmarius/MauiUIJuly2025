@@ -6,6 +6,9 @@ namespace MauiAIJuly.Services
     {
         private List<Event> _events;
 
+        // Event to notify subscribers when events list changes
+        public event EventHandler EventsChanged;
+
         public EventService()
         {
             _events = new List<Event>
@@ -15,6 +18,12 @@ namespace MauiAIJuly.Services
                 new Event { Name = "Food Drive", Start = DateTime.Now.AddDays(-2), End = DateTime.Now.AddDays(-2).AddHours(5), Address = "789 Oak St", Client = "Food Bank", VolunteersNeeded = 8, State = "Completed" },
                 new Event { Name = "Beach Cleanup", Start = DateTime.Now.AddDays(3), End = DateTime.Now.AddDays(3).AddHours(3), Address = "Ocean Blvd", Client = "Environmental Group", VolunteersNeeded = 10, State = "Requested" }
             };
+        }
+
+        // Method to notify subscribers of changes
+        private void NotifyEventsChanged()
+        {
+            EventsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public async Task<IEnumerable<Event>> GetEventsAsync()
@@ -48,6 +57,7 @@ namespace MauiAIJuly.Services
         {
             await Task.Delay(100);
             _events.Add(newEvent);
+            NotifyEventsChanged();
             return true;
         }
 
@@ -56,6 +66,7 @@ namespace MauiAIJuly.Services
             await Task.Delay(100);
             // In a real app, we would find the event by ID and update it
             // For this demo, we'll just return true
+            NotifyEventsChanged();
             return true;
         }
 
@@ -64,6 +75,7 @@ namespace MauiAIJuly.Services
             await Task.Delay(100);
             // In a real app, we would find the event by ID and delete it
             // For this demo, we'll just return true
+            NotifyEventsChanged();
             return true;
         }
     }

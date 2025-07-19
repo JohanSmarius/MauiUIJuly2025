@@ -2,6 +2,7 @@
 using Syncfusion.Maui.Toolkit.Hosting;
 using MauiAIJuly.Services;
 using MauiAIJuly.ViewModels;
+using MauiAIJuly.Views;
 
 namespace MauiAIJuly;
 
@@ -21,10 +22,17 @@ public static class MauiProgram
 
 		// Register services
 		builder.Services.AddSingleton<IEventService, EventService>();
+		builder.Services.AddSingleton<IVolunteerService, VolunteerService>();
 
 		// Register view models
 		builder.Services.AddSingleton<MainPageViewModel>();
-		builder.Services.AddSingleton<AddEventPageViewModel>();
+		builder.Services.AddTransient<AddEventPageViewModel>();
+		builder.Services.AddTransient<ShiftOverviewViewModel>();
+
+		// Register pages
+		builder.Services.AddTransient<MainPage>();
+		builder.Services.AddTransient<AddEventPage>();
+		builder.Services.AddTransient<ShiftOverview>();
 
 #if DEBUG
 		builder.Logging.AddDebug();
