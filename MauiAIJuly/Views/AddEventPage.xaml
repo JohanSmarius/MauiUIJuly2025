@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sftoolkit="http://schemas.syncfusion.com/maui/toolkit"
+             xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels"
+             x:Class="MauiAIJuly.Views.AddEventPage"
+             Title="Add Event">
+    <ContentPage.BindingContext>
+        <viewModels:AddEventPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <Entry Placeholder="Event Name" Text="{Binding Name}" />
+            <Entry Placeholder="Client" Text="{Binding Client}" />
+            <Entry Placeholder="Address" Text="{Binding Address}" />
+            <DatePicker Date="{Binding StartDate}" />
+            <TimePicker Time="{Binding StartTime}" />
+            <DatePicker Date="{Binding EndDate}" />
+            <TimePicker Time="{Binding EndTime}" />
+            <Entry Placeholder="Volunteers Needed" Keyboard="Numeric" Text="{Binding VolunteersNeeded}" />
+            <Button Text="Add Event" Command="{Binding AddEventCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
