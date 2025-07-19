@@ -24,6 +24,7 @@ public static class MauiProgram
 
 		// Register view models
 		builder.Services.AddSingleton<MainPageViewModel>();
+		builder.Services.AddSingleton<AddEventPageViewModel>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

@@ -7,7 +7,6 @@
              xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels">
     <ContentPage.Content>
         
-        <sftoolkit:></sftoolkit:>
         
     </ContentPage.Content>
 </ContentPage>

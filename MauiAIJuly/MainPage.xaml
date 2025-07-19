@@ -17,7 +17,6 @@
                     <sftoolkit:SfPullToRefresh IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
                                                RefreshCommand="{Binding RefreshCommand}">
                         <sftoolkit:SfPullToRefresh.PullableContent>
-                            <Grid>
                             <CollectionView ItemsSource="{Binding FutureEvents}">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
@@ -35,7 +34,6 @@
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
-                            </Grid>
                         </sftoolkit:SfPullToRefresh.PullableContent>
                     </sftoolkit:SfPullToRefresh>
                 </sftoolkit:SfTabItem>

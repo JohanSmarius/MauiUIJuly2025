@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiAIJuly"
+    xmlns:views="clr-namespace:MauiAIJuly.Views"
     Title="MauiAIJuly">
 
     <ShellContent
@@ -12,9 +13,9 @@
         Route="MainPage" />
 
     <ShellContent
-        Title="Overview"
-        Icon="{StaticResource IconProjects}"
-        ContentTemplate="{DataTemplate local:ShiftOverviewPage}"
-        Route="projects" />
+        Title="Add Event"
+        Icon="plus.png"
+        ContentTemplate="{DataTemplate views:AddEventPage}"
+        Route="add-event" />
 
 </Shell>
