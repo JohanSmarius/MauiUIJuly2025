@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using MauiAIJuly.Models;
 using MauiAIJuly.Services;
 using System;
+using System.Collections.ObjectModel;
 
 namespace MauiAIJuly.ViewModels
 {
@@ -10,6 +11,8 @@ namespace MauiAIJuly.ViewModels
     {
         private readonly IEventService _eventService;
 
+        public ObservableCollection<string> Customers { get; set; }
+        
         [ObservableProperty] string name;
         [ObservableProperty] string client;
         [ObservableProperty] string address;
@@ -24,6 +27,11 @@ namespace MauiAIJuly.ViewModels
         public AddEventPageViewModel(IEventService eventService)
         {
             _eventService = eventService;
+            
+            Customers = new ObservableCollection<string>();
+            Customers.Add("Customer 1");
+            Customers.Add("Customer 2");
+            Customers.Add("Customer 3");
         }
 
         [RelayCommand]
