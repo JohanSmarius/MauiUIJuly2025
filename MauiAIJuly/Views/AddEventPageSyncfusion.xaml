@@ -14,12 +14,12 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <VerticalStackLayout Padding="20" Spacing="16">
+            <VerticalStackLayout Padding="20" >
                 <popups:SfPopup x:Name="popup" StaysOpen="True" ShowCloseButton="True" IsFullScreen="True" HeaderTitle="Select a date and time">
                     <popups:SfPopup.ContentTemplate>
                         <DataTemplate>
                             <VerticalStackLayout>
-                                <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate}">
+                                <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate, Mode=TwoWay}">
                                     <sftoolkit:SfDateTimePicker.HeaderView>
                                         <sftoolkit:DateTimePickerHeaderView></sftoolkit:DateTimePickerHeaderView>
                                     </sftoolkit:SfDateTimePicker.HeaderView>
@@ -52,7 +52,7 @@
                 <Entry Placeholder="Address" Text="{Binding Address}" />
             </layouts:SfTextInputLayout>
             
-            <sftoolkit:SfDatePicker SelectedDate="{Binding EndDate}">
+            <sftoolkit:SfDatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}">
                 <sftoolkit:SfDateTimePicker.HeaderView>
                     <sftoolkit:PickerHeaderView Text="End date" Height="40" />
                 </sftoolkit:SfDateTimePicker.HeaderView>
