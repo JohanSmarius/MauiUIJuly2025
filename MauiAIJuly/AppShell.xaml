@@ -18,6 +18,12 @@
         ContentTemplate="{DataTemplate views:AddEventPage}"
         Route="add-event" />
     
+    <ShellContent
+        Title="Add Event Syncfusion"
+        Icon="plus.png"
+        ContentTemplate="{DataTemplate views:AddEventPageSyncfusion}"
+        Route="add-event-syncfusion" />
+    
     <ShellContent 
         Title="Volunteer Shifts"
         Icon="person.png"

@@ -9,9 +9,9 @@ namespace MauiAIJuly.ViewModels
     public partial class ShiftOverviewViewModel : ObservableObject
     {
         private readonly IVolunteerService _volunteerService;
-
+        
         [ObservableProperty]
-        ObservableCollection<Volunteer> volunteers = new();
+        ObservableCollection<EventParticipation> eventParticipation = new();
 
         [ObservableProperty]
         bool isRefreshing;
@@ -28,40 +28,16 @@ namespace MauiAIJuly.ViewModels
         public ShiftOverviewViewModel(IVolunteerService volunteerService)
         {
             _volunteerService = volunteerService;
-            LoadVolunteersAsync().ConfigureAwait(false);
-        }
-
-        [RelayCommand]
-        private async Task RefreshAsync()
-        {
-            IsRefreshing = true;
-            await LoadVolunteersAsync();
-            IsRefreshing = false;
-        }
-
-        private async Task LoadVolunteersAsync()
-        {
-            try
+            
+            for (int i = 1; i <= 5; i++)
             {
-                var volunteersList = await _volunteerService.GetTopVolunteersAsync();
-
-                MainThread.BeginInvokeOnMainThread(() =>
+                eventParticipation.Add(new EventParticipation
                 {
-                    Volunteers.Clear();
-                    foreach (var volunteer in volunteersList)
-                    {
-                        Volunteers.Add(volunteer);
-                    }
-
-                    TotalVolunteers = Volunteers.Count;
-                    TotalCompletedShifts = Volunteers.Sum(v => v.CompletedShifts);
+                    Volunteer = $"Volunteer-{i}",
+                    TotalNumberOfEventHours = new Random().Next(100)
                 });
             }
-            catch (Exception ex)
-            {
-                StatusMessage = $"Error loading volunteers: {ex.Message}";
-                System.Diagnostics.Debug.WriteLine($"Error loading volunteers: {ex.Message}");
-            }
         }
+
     }
 }

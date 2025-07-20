@@ -5,8 +5,23 @@
              x:Class="MauiAIJuly.ShiftOverview"
              xmlns:sftoolkit="http://schemas.syncfusion.com/maui/toolkit"
              xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels"
-             Title="Volunteer Shifts">
+             xmlns:charts="clr-namespace:Syncfusion.Maui.Toolkit.Charts;assembly=Syncfusion.Maui.Toolkit"
+             Title="Volunteer Shifts"
+             x:DataType="viewModels:ShiftOverviewViewModel">
     <ContentPage.Content>
+        <charts:SfCircularChart>
+            <charts:SfCircularChart.Title>
+                <Label Text="Event hours per volunteer"/>
+            </charts:SfCircularChart.Title>
+            <charts:PieSeries ItemsSource="{Binding EventParticipation}" 
+                              XBindingPath="Volunteer" 
+                              YBindingPath="TotalNumberOfEventHours"
+                              ShowDataLabels="True"
+                              EnableTooltip="True"/>
+            <charts:SfCircularChart.Legend>
+                <charts:ChartLegend Placement="Left"/>
+            </charts:SfCircularChart.Legend>
+        </charts:SfCircularChart>
         <!-- <Grid RowDefinitions="Auto,Auto,*" Padding="20"> -->
         <!--     ~1~ Summary Statistics @1@ -->
         <!--     <Grid Grid.Row="0" ColumnDefinitions="*,*" Margin="0,0,0,20"> -->

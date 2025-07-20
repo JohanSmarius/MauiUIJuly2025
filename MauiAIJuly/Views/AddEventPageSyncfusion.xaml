@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sftoolkit="http://schemas.syncfusion.com/maui/toolkit"
+             xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels"
+             xmlns:inputs="clr-namespace:Syncfusion.Maui.Toolkit.NumericUpDown;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:layouts="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:pickers="clr-namespace:Syncfusion.Maui.Toolkit.Picker;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="MauiAIJuly.Views.AddEventPageSyncfusion"
+             Title="Add Event">
+
+    <ContentPage.Content>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <layouts:SfTextInputLayout Hint="Name event" HelperText="Enter the name for the event" ContainerType="None">
+                <Entry Placeholder="Event Name" Text="{Binding Name}" />
+            </layouts:SfTextInputLayout>
+            <layouts:SfTextInputLayout Hint="Client">
+                <Entry Placeholder="Client" Text="{Binding Client}" />
+            </layouts:SfTextInputLayout>
+            
+            <pickers:SfPicker x:Name="picker">
+                <pickers:SfPicker.HeaderView>
+                    <pickers:PickerHeaderView Text="Select a customer" Height="40" />
+                </pickers:SfPicker.HeaderView>
+                <pickers:SfPicker.Columns>
+                    <pickers:PickerColumn HeaderText="Colors" 
+                                         ItemsSource="{Binding Customers}" />
+                </pickers:SfPicker.Columns>
+            </pickers:SfPicker>
+            <layouts:SfTextInputLayout Hint="Address event" HelperText="Enter the address for the event" ContainerType="None">
+                <Entry Placeholder="Address" Text="{Binding Address}" />
+            </layouts:SfTextInputLayout>
+            
+            <sftoolkit:SfDatePicker SelectedDate="{Binding EndDate}">
+                <sftoolkit:SfDateTimePicker.HeaderView>
+                    <sftoolkit:PickerHeaderView Text="End date" Height="40" />
+                </sftoolkit:SfDateTimePicker.HeaderView>
+            </sftoolkit:SfDatePicker>
+            
+            <sftoolkit:SfTimePicker x:Name="endTimePicker" SelectedTime="{Binding EndTime}">
+                <sftoolkit:SfTimePicker.HeaderView>
+                    <sftoolkit:PickerHeaderView Text="End time" Height="40" />
+                </sftoolkit:SfTimePicker.HeaderView>
+            </sftoolkit:SfTimePicker>
+            
+            <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate}">
+                <sftoolkit:SfDateTimePicker.HeaderView>
+                    <sftoolkit:DateTimePickerHeaderView></sftoolkit:DateTimePickerHeaderView>
+                </sftoolkit:SfDateTimePicker.HeaderView>
+            </sftoolkit:SfDateTimePicker>
+            
+            <Label Text="Number of volunteers requested"></Label>
+            <layouts:SfTextInputLayout Hint="Number of volunteers" HelperText="Number of volunteers needed" ContainerType="None">
+                <inputs:SfNumericUpDown HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Value="{Binding VolunteersNeeded}"
+                                         AllowNull="False"
+                                         Minimum="1"
+                                         Maximum="8"
+                                         CustomFormat="N0"/>
+            </layouts:SfTextInputLayout>
+
+            <buttons:SfButton Text="Add Event" ImageSource="icon_add.png" ShowIcon="True" Command="{Binding AddEventCommand}">
+            </buttons:SfButton>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

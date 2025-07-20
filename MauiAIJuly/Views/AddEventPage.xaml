@@ -15,62 +15,15 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">
             <Entry Placeholder="Name" Text="{Binding Name}" />
-            <layouts:SfTextInputLayout Hint="Name event" HelperText="Enter the name for the event" ContainerType="None">
-                <Entry Placeholder="Event Name" Text="{Binding Name}" />
-            </layouts:SfTextInputLayout>
-            <layouts:SfTextInputLayout Hint="Client">
-                <Entry Placeholder="Client" Text="{Binding Client}" />
-            </layouts:SfTextInputLayout>
-            
-            <pickers:SfPicker x:Name="picker">
-                <pickers:SfPicker.HeaderView>
-                    <pickers:PickerHeaderView Text="Select a customer" Height="40" />
-                </pickers:SfPicker.HeaderView>
-                <pickers:SfPicker.Columns>
-                    <pickers:PickerColumn HeaderText="Colors" 
-                                         ItemsSource="{Binding Customers}" />
-                </pickers:SfPicker.Columns>
-            </pickers:SfPicker>
+            <Entry Placeholder="Client" Text="{Binding Client}"></Entry>
             <Entry Placeholder="Address" Text="{Binding Address}" />
-            <Label Text="Start and end time default"></Label>
             <DatePicker Date="{Binding StartDate}" />
             <TimePicker Time="{Binding StartTime}" />
             <DatePicker Date="{Binding EndDate}" />
             <TimePicker Time="{Binding EndTime}" />
-            
-            <Label Text="Start and end time Syncfusion"></Label>
-            
-            <sftoolkit:SfDatePicker SelectedDate="{Binding EndDate}">
-                <sftoolkit:SfDateTimePicker.HeaderView>
-                    <sftoolkit:PickerHeaderView Text="End date" Height="40" />
-                </sftoolkit:SfDateTimePicker.HeaderView>
-            </sftoolkit:SfDatePicker>
-            
-            <sftoolkit:SfTimePicker x:Name="endTimePicker" SelectedTime="{Binding EndTime}">
-                <sftoolkit:SfTimePicker.HeaderView>
-                    <sftoolkit:PickerHeaderView Text="End time" Height="40" />
-                </sftoolkit:SfTimePicker.HeaderView>
-            </sftoolkit:SfTimePicker>
-            
-            <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate}">
-                <sftoolkit:SfDateTimePicker.HeaderView>
-                    <sftoolkit:DateTimePickerHeaderView></sftoolkit:DateTimePickerHeaderView>
-                </sftoolkit:SfDateTimePicker.HeaderView>
-            </sftoolkit:SfDateTimePicker>
-            
-            
             <Label Text="Number of volunteers requested"></Label>
-            <inputs:SfNumericUpDown HorizontalOptions="Center"
-                                     VerticalOptions="Center"
-                                     Value="{Binding VolunteersNeeded}"
-                                     AllowNull="False"
-                                     Minimum="1"
-                                     Maximum="8"
-                                     CustomFormat="N0"/>
-
-            <buttons:SfButton Text="Add Event" ImageSource="icon_add.png" ShowIcon="True" Command="{Binding AddEventCommand}">
-            </buttons:SfButton>
-            
+            <Entry Placeholder="NumberOfVolunteer" Text="{Binding VolunteersNeeded}"></Entry>
+            <Button Text="Add Event" Command="{Binding AddEventCommand}" />
         </VerticalStackLayout>
     </ScrollView>
     </ContentPage.Content>

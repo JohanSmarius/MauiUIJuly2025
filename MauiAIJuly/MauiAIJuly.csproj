@@ -71,4 +71,17 @@
 	  <Folder Include="Controls\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Views\AddEventPageSyncfusion.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\AddEventPageSyncfusion.xaml.cs">
+	    <DependentUpon>AddEventPageSyncfusion.xaml</DependentUpon>
+	    <SubType>Code</SubType>
+	  </Compile>
+	</ItemGroup>
+
 </Project>
