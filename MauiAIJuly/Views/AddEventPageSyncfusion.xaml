@@ -8,13 +8,31 @@
              xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
              xmlns:layouts="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
              xmlns:pickers="clr-namespace:Syncfusion.Maui.Toolkit.Picker;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:popups="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
              x:Class="MauiAIJuly.Views.AddEventPageSyncfusion"
              Title="Add Event">
 
     <ContentPage.Content>
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="16">
-            <layouts:SfTextInputLayout Hint="Name event" HelperText="Enter the name for the event" ContainerType="None">
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="16">
+                <popups:SfPopup x:Name="popup" StaysOpen="True" ShowCloseButton="True" IsFullScreen="True" HeaderTitle="Select a date and time">
+                    <popups:SfPopup.ContentTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout>
+                                <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate}">
+                                    <sftoolkit:SfDateTimePicker.HeaderView>
+                                        <sftoolkit:DateTimePickerHeaderView></sftoolkit:DateTimePickerHeaderView>
+                                    </sftoolkit:SfDateTimePicker.HeaderView>
+                                </sftoolkit:SfDateTimePicker>
+                                
+                                <buttons:SfButton Text="OK" Clicked="OnDateSelected"></buttons:SfButton>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </popups:SfPopup.ContentTemplate>
+                </popups:SfPopup>
+                
+                
+                <layouts:SfTextInputLayout Hint="Name event" HelperText="Enter the name for the event" ContainerType="None">
                 <Entry Placeholder="Event Name" Text="{Binding Name}" />
             </layouts:SfTextInputLayout>
             <layouts:SfTextInputLayout Hint="Client">
@@ -46,11 +64,12 @@
                 </sftoolkit:SfTimePicker.HeaderView>
             </sftoolkit:SfTimePicker>
             
-            <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate}">
-                <sftoolkit:SfDateTimePicker.HeaderView>
-                    <sftoolkit:DateTimePickerHeaderView></sftoolkit:DateTimePickerHeaderView>
-                </sftoolkit:SfDateTimePicker.HeaderView>
-            </sftoolkit:SfDateTimePicker>
+            <buttons:SfButton Text="Pick date and time" Clicked="OnPickClicked"></buttons:SfButton>
+            <!-- <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate}"> -->
+            <!--     <sftoolkit:SfDateTimePicker.HeaderView> -->
+            <!--         <sftoolkit:DateTimePickerHeaderView></sftoolkit:DateTimePickerHeaderView> -->
+            <!--     </sftoolkit:SfDateTimePicker.HeaderView> -->
+            <!-- </sftoolkit:SfDateTimePicker> -->
             
             <Label Text="Number of volunteers requested"></Label>
             <layouts:SfTextInputLayout Hint="Number of volunteers" HelperText="Number of volunteers needed" ContainerType="None">

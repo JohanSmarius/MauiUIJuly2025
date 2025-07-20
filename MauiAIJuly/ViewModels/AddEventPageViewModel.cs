@@ -91,5 +91,7 @@ namespace MauiAIJuly.ViewModels
                 IsBusy = false;
             }
         }
+
+
     }
 }
