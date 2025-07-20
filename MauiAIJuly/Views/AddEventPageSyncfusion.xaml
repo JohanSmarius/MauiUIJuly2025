@@ -10,6 +10,7 @@
              xmlns:pickers="clr-namespace:Syncfusion.Maui.Toolkit.Picker;assembly=Syncfusion.Maui.Toolkit"
              xmlns:popups="clr-namespace:Syncfusion.Maui.Toolkit.Popup;assembly=Syncfusion.Maui.Toolkit"
              x:Class="MauiAIJuly.Views.AddEventPageSyncfusion"
+             x:DataType="viewModels:AddEventPageViewModel"
              Title="Add Event">
 
     <ContentPage.Content>

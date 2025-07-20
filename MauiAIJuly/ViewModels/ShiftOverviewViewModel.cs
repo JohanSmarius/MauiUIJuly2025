@@ -8,27 +8,11 @@ namespace MauiAIJuly.ViewModels
 {
     public partial class ShiftOverviewViewModel : ObservableObject
     {
-        private readonly IVolunteerService _volunteerService;
-        
         [ObservableProperty]
         ObservableCollection<EventParticipation> eventParticipation = new();
 
-        [ObservableProperty]
-        bool isRefreshing;
-
-        [ObservableProperty]
-        string statusMessage;
-
-        [ObservableProperty]
-        int totalVolunteers;
-
-        [ObservableProperty]
-        int totalCompletedShifts;
-
-        public ShiftOverviewViewModel(IVolunteerService volunteerService)
+        public ShiftOverviewViewModel()
         {
-            _volunteerService = volunteerService;
-            
             for (int i = 1; i <= 5; i++)
             {
                 eventParticipation.Add(new EventParticipation

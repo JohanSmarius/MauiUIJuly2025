@@ -22,7 +22,6 @@ public static class MauiProgram
 
 		// Register services
 		builder.Services.AddSingleton<IEventService, EventService>();
-		builder.Services.AddSingleton<IVolunteerService, VolunteerService>();
 
 		// Register view models
 		builder.Services.AddSingleton<MainPageViewModel>();

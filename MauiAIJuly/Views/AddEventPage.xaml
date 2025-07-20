@@ -9,6 +9,7 @@
              xmlns:layouts="clr-namespace:Syncfusion.Maui.Toolkit.TextInputLayout;assembly=Syncfusion.Maui.Toolkit"
              xmlns:pickers="clr-namespace:Syncfusion.Maui.Toolkit.Picker;assembly=Syncfusion.Maui.Toolkit"
              x:Class="MauiAIJuly.Views.AddEventPage"
+             x:DataType="viewModels:AddEventPageViewModel"
              Title="Add Event">
 
     <ContentPage.Content>
