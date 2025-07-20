@@ -6,6 +6,7 @@
              xmlns:sftoolkit="http://schemas.syncfusion.com/maui/toolkit"
              xmlns:viewModels="clr-namespace:MauiAIJuly.ViewModels"
              xmlns:models="clr-namespace:MauiAIJuly.Models"
+             x:DataType="viewModels:MainPageViewModel"
              >
     <ContentPage.Content>
         <sftoolkit:SfTabView>
