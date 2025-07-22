@@ -54,9 +54,9 @@
             </layouts:SfTextInputLayout>
             
             <sftoolkit:SfDatePicker SelectedDate="{Binding EndDate, Mode=TwoWay}">
-                <sftoolkit:SfDateTimePicker.HeaderView>
+                <sftoolkit:SfDatePicker.HeaderView>
                     <sftoolkit:PickerHeaderView Text="End date" Height="40" />
-                </sftoolkit:SfDateTimePicker.HeaderView>
+                </sftoolkit:SfDatePicker.HeaderView>
             </sftoolkit:SfDatePicker>
             
             <sftoolkit:SfTimePicker x:Name="endTimePicker" SelectedTime="{Binding EndTime}">
@@ -66,11 +66,7 @@
             </sftoolkit:SfTimePicker>
             
             <buttons:SfButton Text="Pick date and time" Clicked="OnPickClicked"></buttons:SfButton>
-            <!-- <sftoolkit:SfDateTimePicker SelectedDate="{Binding EndDate}"> -->
-            <!--     <sftoolkit:SfDateTimePicker.HeaderView> -->
-            <!--         <sftoolkit:DateTimePickerHeaderView></sftoolkit:DateTimePickerHeaderView> -->
-            <!--     </sftoolkit:SfDateTimePicker.HeaderView> -->
-            <!-- </sftoolkit:SfDateTimePicker> -->
+       
             
             <Label Text="Number of volunteers requested"></Label>
             <layouts:SfTextInputLayout Hint="Number of volunteers" HelperText="Number of volunteers needed" ContainerType="None">
